@@ -5,6 +5,7 @@
 ; Kevin Rao 
 
 ;Assignment 2:
+
 ;Exercise #1
 ;Part A
 	;a) (A (B C))
@@ -20,6 +21,7 @@
 	;c) (caaar '(((D) E) U))
 	;d)	(cadar '(((D) E) U))
 	
+;-------------------------------------------------------------------------
 ;Exercise #2
 (defun elementIsNumber(L)
 	(if (numberp (cadr L))
@@ -28,6 +30,8 @@
 ;Test Cases
 (elementIsNumber ‘(1 2 3 4))
 (elementIsNumber ‘(1 a b 4))
+
+;-------------------------------------------------------------------------
 ;Exercise #3
 (defun elementIsList(L)
 	(if (consp (cadr L))
@@ -42,6 +46,7 @@
 (elementIsList '( (1 (2)) ((3) 4)) )
 (elementIsList '( (1 (2)) ((3) (4)) ) )
 
+;-------------------------------------------------------------------------
 ;Exercise #4
 (defun base8(N)
 	(if (< N 0)
@@ -53,6 +58,7 @@
 (loop for x in '(-1 0 7 8 15 20 204)
       do (print (base8 x))) 
 
+;-------------------------------------------------------------------------
 ;Exercise #5
 (defun myMember(x lst)
 	(if (null lst)
@@ -66,6 +72,7 @@
 (print (myMember 'a '(a b c d)))
 (print (myMember 1 '(1 2 3 4)))
 
+;-------------------------------------------------------------------------
 ;Exercise #6
 (defun nbDigits(N)
 	(if (< N 10)
@@ -79,6 +86,7 @@
 (print(nbDigits 10))
 (print(nbDigits 1256))
 
+;-------------------------------------------------------------------------
 ;Exercise #7
 (defun binary_length_(N)
 	(cond ((zerop N) 1)
@@ -91,6 +99,7 @@
 (print(binary_length_ 9))
 (print(binary_length_ 10))
 
+;-------------------------------------------------------------------------
 ;Exercise #8
 (defun binary_List(N)
 	(if (<= N 0)
@@ -101,5 +110,39 @@
 ;Test Case
 (loop for x in '(0 -1  1 4 5 10 15 1023 1024)
       do (print (binary_List x))) 
-	  
+
+;-------------------------------------------------------------------------
 ;Exercise #9
+(defun nth2 (n lst)
+  (if(or(zerop n)(null lst))
+     nil
+   (if (= n 1)
+    (car lst)
+    (nth2 (- n 1) (cdr lst)))))
+;Test Cases
+(print(nth2 1 '()))
+(print(nth2 0 '(12 4 65 3)))
+(print(nth2 1 '(12 4 65 3)))
+(print(nth2 2 '(12 4 65 3)))
+(print(nth2 3 '(12 4 65 3)))
+(print(nth2 4 '(12 4 65 3)))
+ 
+;-------------------------------------------------------------------------
+;Exercise #10
+(defun nthcdr2 (n lst)
+ (if(null lst)
+     nil
+  (if (= n 0)
+    lst
+    (nthcdr2 (- n 1) (cdr lst)))))
+
+;Test Cases
+(print(nthcdr2 0 '()))
+(print(nthcdr2 0 '(12 4 65 3)))
+(print(nthcdr2 1 '(12 4 65 3)))
+(print(nthcdr2 2 '(12 4 65 3)))
+(print(nthcdr2 3 '(12 4 65 3)))
+(print(nthcdr2 4 '(12 4 65 3)))
+
+;-------------------------------------------------------------------------
+;Exercise #11
